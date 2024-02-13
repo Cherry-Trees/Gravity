@@ -21,9 +21,7 @@ class Cell {
     
     public:
         float x0, x, y0, y;
-        int indices[2];
-        
-        
+        int indices[2];       
 
         Cell() {}
         Cell(float x0, float x, float y0, float y, int index_x, int index_y) {
@@ -39,8 +37,6 @@ class Cell {
             this->setHash();
         }
 
-        // float* X() {float x_range[2] = {x0,x}; return x_range;}
-        // float* Y() {float y_range[2] = {y0,y}; return y_range;}
         int getHash() {return hash;}
         int getXIndex() {return index_x;}
         int getYIndex() {return index_y;}
@@ -50,14 +46,9 @@ class Cell {
         float distanceFromBody(Body body) {
             return sqrt((body.r.x - center.x)*(body.r.x - center.x) + (body.r.y - center.y)*(body.r.y - center.y));
         }
-        //currentBodies.erase(remove(currentBodies.begin(), currentBodies.end(), body), currentBodies.end());
 
         void addBody(Body body) {totalMass += body.m;} //currentBodies.push_back(body);}
         void removeBody(Body body) {totalMass -= body.m;}
-
-        
-
-
     
     private:
         Vector2f center;
