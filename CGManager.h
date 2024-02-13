@@ -36,13 +36,6 @@ class CGManager {
             int CG_index = 0;
             for (CellGrid &CG : CGArray) {
 
-                // for (Body &body : bodyArray) {
-                //     bool deleteBody = CG.sampleBody(body, CG_index);
-                //     if (deleteBody) {
-                //         bodyArray.erase(std::remove(bodyArray.begin(), bodyArray.end(), &body), bodyArray.end());
-                //     }
-                // }   
-
                 for (int i=0; i<bodyArray.size(); i++) {
                     bool deleteBody = CG.sampleBody(bodyArray[i], CG_index);
                     if (deleteBody) {
@@ -55,8 +48,6 @@ class CGManager {
                     body.sprite.setPosition(body.r);
                 }
                 CG_index++;
-            }
-
-            
+            }            
         }
 };
