@@ -45,8 +45,6 @@ class Body {
             while (r.x > scanner_x) {scanner_x += _cell_delta_x;}
             while (r.y > scanner_y) {scanner_y += _cell_delta_y;}
 
-            // cout << "Scanner: " << scanner_x - _cell_delta_x << " " << scanner_x << " " << scanner_y << " " << scanner_y - _cell_delta_y << endl;
-
             currentCellHashes[_CG_index] = rangeHash(scanner_x - _cell_delta_x, scanner_x,
                                                     scanner_y, scanner_y - _cell_delta_y);
         }
