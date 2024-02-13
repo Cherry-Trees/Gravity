@@ -1,2 +1,2 @@
-# n-body-sim
+# Gravity
 WIP
