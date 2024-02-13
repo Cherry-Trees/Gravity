@@ -48,10 +48,8 @@ class CellGrid {
                 }
 
                 // Finally, build the hash table
-                for (int i=0; i<area; i++) {
+                for (int i=0; i<area; i++)
                     cellHashMap[hashArray2[i/shape[1]][i%shape[0]]] = cellArray2[i/shape[1]][i%shape[0]];
-                    //cout << "HASH: " << hashArray2[i/shape[1]][i%shape[0]] << " --> CELL: " <<  cellArray2[i/shape[1]][i%shape[0]] << endl;
-                }
             }
 
             Cell& getCellFromHash(int _hash) {return cellHashMap[_hash];}
@@ -70,10 +68,7 @@ class CellGrid {
         private:
             Cell** cellArray2;
             int** hashArray2;
-            map<int, Cell> cellHashMap;
-
-            
-
+            map<int, Cell> cellHashMap;    
 };
 
 ostream& operator<<(ostream &out, CellGrid &cg) {
@@ -118,8 +113,6 @@ bool CellGrid::sampleBody(Body &body, int _CG_index) {
     int current_hash = body.getCurrentCellHash(_CG_index);
     bool deleteBody = false;
 
-    //cellHashMap[body.getCurrentCellHash(_CG_index)].addBody(body);
-
     if (cellHashMap.find(current_hash) == cellHashMap.end())
         deleteBody = true;
     
@@ -131,12 +124,6 @@ bool CellGrid::sampleBody(Body &body, int _CG_index) {
         }
     }
     return deleteBody;
-
-
-    // if (current_hash != prev_hash) {
-    //     cellHashMap[prev_hash].removeBody(body);
-    //     cellHashMap[current_hash].addBody(body);
-    // }
 }
 
 void CellGrid::sampleAcc(Body &body, int _CG_index, const float _DELTA=0.01f) {
@@ -156,5 +143,3 @@ void CellGrid::sampleAcc(Body &body, int _CG_index, const float _DELTA=0.01f) {
         body.r += body.v * _DELTA;
     }
 }
-
-// DELETE BODIES OUTSIDE OF RANGE
